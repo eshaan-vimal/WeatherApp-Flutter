@@ -1,13 +1,13 @@
 import "package:flutter/material.dart";
-// import "package:flutter_dotenv/flutter_dotenv.dart";
+import "package:flutter_dotenv/flutter_dotenv.dart";
 
 import "./screens/home_screen.dart";
 
 
-void main ()
+void main() async
 {
-    // WidgetsFlutterBinding.ensureInitialized();
-    // await dotenv.load(fileName: ".env");
+    WidgetsFlutterBinding.ensureInitialized();
+    await dotenv.load(fileName: ".env");
 
     runApp(const MyApp());
 }
@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp>
     Widget build (BuildContext context)
     {
         return MaterialApp(
-            title: "Weather App",
+            title: "eV Weather",
             theme: ThemeData.light(),
             darkTheme: ThemeData.dark(),
             themeMode: isDarkMode? ThemeMode.dark : ThemeMode.light,
