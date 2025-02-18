@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter_dotenv/flutter_dotenv.dart";
 import "package:http/http.dart" as http;
 import "package:intl/intl.dart";
+import "package:geolocator/geolocator.dart";
 
 import "dart:ui";
 import "dart:convert";
@@ -28,16 +29,55 @@ class HomeScreen extends StatefulWidget
 
 class _HomeScreenState extends State<HomeScreen>
 {
+    double latitude = 19.230128;
+    double longitude = 72.970483;
     late Future<Map<String,dynamic>> weather;
+
+
+    Future<void> getCoord() async
+    {
+        try
+        {
+            bool isEnabled = await Geolocator.isLocationServiceEnabled();
+
+            if (!isEnabled)
+            {
+                return;
+            }
+
+            LocationPermission permission = await Geolocator.requestPermission();
+
+            if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever)
+            {
+                return;
+            }
+
+            Position position = await Geolocator.getCurrentPosition(
+                locationSettings: LocationSettings(
+                    accuracy: LocationAccuracy.high,
+                    distanceFilter: 100,
+                ), 
+            );
+
+            latitude = position.latitude;
+            longitude = position.longitude;
+        }
+        catch (e)
+        {
+            throw e.toString();
+        }
+    }
 
 
     Future<Map<String, dynamic>> getWeather() async
     {
         try
         {
-            const String city = "Mumbai";
+            // const String city = "Mumbai";
+            await getCoord();
+
             final String? apiKey = dotenv.env["API_KEY"];
-            Uri url = Uri.parse("https://api.openweathermap.org/data/2.5/forecast?q=$city&appid=$apiKey&units=metric");
+            Uri url = Uri.parse("https://api.openweathermap.org/data/2.5/forecast?lat=$latitude&lon=$longitude&appid=$apiKey&units=metric");
 
             final res = await http.get(url);
             final data = jsonDecode(res.body);
