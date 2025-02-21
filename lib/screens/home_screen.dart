@@ -142,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen>
     {
         return Scaffold(
             appBar: AppBar(
-                title: Text(
+                title: const Text(
                     "Weather Forecast",
                     style: TextStyle(
                         fontSize: 25,
@@ -151,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
                 actions: [
                     IconButton(
-                        icon: Icon(Icons.refresh),
+                        icon: const Icon(Icons.refresh),
                         onPressed: () {
                             setState(() {
                                 weather = getWeather();
@@ -159,7 +159,7 @@ class _HomeScreenState extends State<HomeScreen>
                         },
                     ),
                     IconButton(
-                        icon: widget.isDarkMode? Icon(Icons.light_mode) : Icon(Icons.dark_mode),
+                        icon: widget.isDarkMode? const Icon(Icons.light_mode) : const Icon(Icons.dark_mode),
                         onPressed: () {
                             widget.toggleTheme();
                         },
@@ -172,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen>
 
                     if (snapshot.connectionState == ConnectionState.waiting)
                     {
-                        return Center(
+                        return const Center(
                             child: CircularProgressIndicator.adaptive(),
                         );
                     }
@@ -207,9 +207,9 @@ class _HomeScreenState extends State<HomeScreen>
                                             width: double.infinity,
                                             child: Card(
                                                 elevation: 8,
-                                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(35))),
+                                                shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(35))),
                                                 child: ClipRRect(
-                                                    borderRadius: BorderRadius.all(Radius.circular(35)),
+                                                    borderRadius: const BorderRadius.all(Radius.circular(35)),
                                                     child: BackdropFilter(
                                                         filter: ImageFilter.blur(
                                                             sigmaX: 10,
@@ -221,24 +221,24 @@ class _HomeScreenState extends State<HomeScreen>
                                                                 children: [
                                                                     Text(
                                                                         "$currTemp°C",
-                                                                        style: TextStyle(
+                                                                        style: const TextStyle(
                                                                             fontSize: 45,
                                                                             fontWeight: FontWeight.w500,
                                                                             fontFamily: "Arial",
                                                                         ),
                                                                     ),
-                                                                    SizedBox(height: 12,),
+                                                                    const SizedBox(height: 12,),
                                                                     Icon(getIcon(currSkyId), size: 64,),
-                                                                    SizedBox(height: 15,),
+                                                                    const SizedBox(height: 15,),
                                                                     Text(
                                                                         currSky,
-                                                                        style: TextStyle(
+                                                                        style: const TextStyle(
                                                                             fontSize: 20,
                                                                             fontWeight: FontWeight.w500,
                                                                             fontStyle: FontStyle.italic,
                                                                         ),
                                                                     ),
-                                                                    SizedBox(height: 6,),
+                                                                    const SizedBox(height: 6,),
                                                                 ],
                                                             ),
                                                         ),
@@ -246,9 +246,9 @@ class _HomeScreenState extends State<HomeScreen>
                                                 ),
                                             ),
                                         ),
-                                        SizedBox(height: 38,),
+                                        const SizedBox(height: 38,),
                         
-                                        Align(
+                                        const Align(
                                             alignment: Alignment.centerLeft,
                                             child: Text(
                                                 "Hourly Forecast",
@@ -258,7 +258,7 @@ class _HomeScreenState extends State<HomeScreen>
                                                 ),
                                             ),
                                         ),
-                                        SizedBox(height: 20,),
+                                        const SizedBox(height: 20,),
                         
                                         SizedBox(
                                             height: 140,
@@ -294,9 +294,9 @@ class _HomeScreenState extends State<HomeScreen>
                                         //         ],
                                         //     ),
                                         // ),
-                                        SizedBox(height: 38,),
+                                        const SizedBox(height: 38,),
                         
-                                        Align(
+                                        const Align(
                                             alignment: Alignment.centerLeft,
                                             child: Text(
                                                 "Additional Information",
@@ -306,7 +306,7 @@ class _HomeScreenState extends State<HomeScreen>
                                                 ),
                                             ),
                                         ),
-                                        SizedBox(height: 18,),
+                                        const SizedBox(height: 18,),
                         
                                         Row(
                                             mainAxisAlignment: MainAxisAlignment.spaceAround,

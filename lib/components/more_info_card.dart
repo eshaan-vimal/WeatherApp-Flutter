@@ -21,24 +21,24 @@ class MoreInfoCard extends StatelessWidget
             width: 120,
             child: Column(
                 children: [
-                    SizedBox(height: 12,),
+                    const SizedBox(height: 12,),
                     Icon(icon, size: 40,),
-                    SizedBox(height: 10,),
+                    const SizedBox(height: 10,),
                     Text(
                         label,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 18,
                         ),
                     ),
-                    SizedBox(height: 8,),
+                    const SizedBox(height: 8,),
                     Text(
                         value,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
                         ),
                     ),
-                    SizedBox(height: 12,),
+                    const SizedBox(height: 12,),
                 ],
             ),
         );

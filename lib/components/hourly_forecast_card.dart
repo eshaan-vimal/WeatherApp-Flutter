@@ -25,24 +25,24 @@ class HourlyForecastCard extends StatelessWidget
                     elevation: 6,
                     child: Column(
                         children: [
-                            SizedBox(height: 12,),
+                            const SizedBox(height: 12,),
                             Text(
                                 time,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 18,
                                 ),
                             ),
-                            SizedBox(height: 8,),
+                            const SizedBox(height: 8,),
                             Icon(icon, size: 40,),
-                            SizedBox(height: 8,),
+                            const SizedBox(height: 8,),
                             Text(
                                 temp,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 16,
                                     fontStyle: FontStyle.italic,
                                 ),
                             ),
-                            SizedBox(height: 12,),
+                            const SizedBox(height: 12,),
                         ],
                     ),
                 ),
